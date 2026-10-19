@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thibault Valentin – Paysagiste, BTS Aménagement paysager</title>
+<meta name="description" content="Portfolio de Thibault Valentin, étudiant en BTS Aménagement paysager : profil, compétences et chantiers réalisés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ========= COULEURS : modifiez ici pour changer toute l'identité du site ========= */
+:root{
+  --vert-profond:#243B2C;   /* fond sombre, titres */
+  --vert-mousse:#5F7A4A;    /* accents */
+  --pierre:#EDEFE6;         /* fond clair */
+  --sable:#DCD2BA;          /* fond secondaire */
+  --terre:#7A5A3C;          /* boutons, détails */
+  --texte:#222A24;
+  --blanc:#FBFBF7;
+  --titre:'Bricolage Grotesque','Trebuchet MS',sans-serif;
+  --corps:'Public Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--corps);color:var(--texte);background:var(--pierre);line-height:1.65;font-size:1.02rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--terre);outline-offset:3px}
+h1,h2,h3{font-family:var(--titre);line-height:1.15;color:var(--vert-profond)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.2rem;font-weight:800}
+h3{font-size:1.15rem;font-weight:700}
+.wrap{width:min(1100px,92%);margin-inline:auto}
+section{padding:4.5rem 0}
+.alt{background:var(--sable)}
+.intro{max-width:62ch;margin-bottom:2rem}
+
+/* ========= NAVIGATION ========= */
+header{position:sticky;top:0;z-index:20;background:var(--vert-profond);color:var(--blanc)}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:58px}
+.logo{font-family:var(--titre);font-weight:800;text-decoration:none;font-size:1.1rem}
+nav ul{display:flex;gap:1.4rem;list-style:none}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--sable)}
+#burger{display:none;background:none;border:1px solid var(--sable);color:var(--blanc);padding:.35rem .7rem;border-radius:4px;font:inherit;cursor:pointer}
+@media(max-width:760px){
+  #burger{display:block}
+  nav ul{display:none;position:absolute;top:58px;left:0;right:0;background:var(--vert-profond);flex-direction:column;padding:1rem 4%;gap:.9rem}
+  nav ul.open{display:flex}
+}
+
+/* ========= ACCUEIL ========= */
+.hero{position:relative;min-height:82vh;display:flex;align-items:flex-end;color:var(--blanc);background:var(--vert-profond);padding:0}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,34,25,.88),rgba(20,34,25,.15) 70%)}
+.hero .wrap{position:relative;z-index:1;padding:0 0 4rem}
+.hero h1{color:var(--blanc);font-size:clamp(2.6rem,9vw,5.8rem);font-weight:800;letter-spacing:-.02em}
+.hero p{max-width:52ch;font-size:1.15rem;margin:1rem 0 1.8rem}
+.btn{display:inline-block;background:var(--terre);color:var(--blanc);padding:.8rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;margin-right:.6rem;border:2px solid var(--terre)}
+.btn:hover{background:#654a31}
+.btn.ghost{background:transparent;border-color:var(--sable)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+/* ========= PROFIL ========= */
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+@media(max-width:800px){.deux{grid-template-columns:1fr;gap:2rem}}
+.faits{list-style:none;margin-top:1.2rem;border-top:1px solid rgba(36,59,44,.25)}
+.faits li{padding:.6rem 0;border-bottom:1px solid rgba(36,59,44,.25);display:flex;gap:1rem}
+.faits b{min-width:120px;color:var(--vert-mousse)}
+.parcours{list-style:none;border-left:3px solid var(--vert-mousse);padding-left:1.4rem}
+.parcours li{margin-bottom:1.3rem;position:relative}
+.parcours li::before{content:"";position:absolute;left:-1.95rem;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--terre)}
+.parcours small{color:var(--terre);font-weight:600;display:block}
+.sous{font-family:var(--titre);font-size:1.2rem;font-weight:700;margin:2rem 0 1rem;color:var(--vert-profond)}
+
+/* ========= COMPETENCES ========= */
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.bloc{background:var(--blanc);padding:1.6rem;border-top:4px solid var(--vert-mousse)}
+.bloc h3{margin-bottom:.8rem}
+.bloc ul{padding-left:1.1rem}
+.bloc li{margin-bottom:.4rem}
+.outils dt{font-weight:600;color:var(--vert-profond)}
+.outils dd{margin:0 0 .7rem;font-size:.95rem}
+
+/* ========= GALERIE ========= */
+.galerie{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:1.5rem}
+figure{background:var(--blanc);cursor:zoom-in}
+figure .photo{aspect-ratio:4/3;background:var(--vert-mousse);overflow:hidden;display:grid;place-items:center;color:var(--blanc);text-align:center;padding:1rem;font-size:.9rem}
+figure img{width:100%;height:100%;object-fit:cover}
+figcaption{padding:1.1rem 1.3rem 1.4rem}
+figcaption h3{margin-bottom:.4rem}
+figcaption p{font-size:.96rem}
+.etapes details{background:var(--blanc);margin-bottom:.6rem;border-left:4px solid var(--terre)}
+.etapes summary{padding:.9rem 1.2rem;cursor:pointer;font-weight:600}
+.etapes ul{padding:0 1.2rem 1rem 2.4rem}
+.etapes li{margin-bottom:.3rem;font-size:.96rem}
+.fiche{background:var(--vert-profond);color:var(--blanc);padding:1.6rem;margin:1.5rem 0}
+.fiche h3{color:var(--blanc);margin-bottom:.6rem}
+#zoom{position:fixed;inset:0;background:rgba(15,25,18,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:1rem;cursor:zoom-out}
+#zoom.on{display:flex}
+#zoom img{max-height:90vh;max-width:95vw;object-fit:contain}
+
+/* ========= CONTACT ========= */
+#contact{background:var(--vert-profond);color:var(--blanc)}
+#contact h2{color:var(--blanc)}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:1.5rem}
+.contacts div{border-top:2px solid var(--sable);padding-top:.8rem}
+.contacts span{display:block;color:var(--sable);font-size:.9rem}
+.contacts a{font-size:1.15rem;font-weight:600;text-decoration:none;word-break:break-all}
+.contacts a:hover{text-decoration:underline}
+footer{background:#1a2c20;color:var(--sable);text-align:center;padding:1.2rem;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#accueil">T. Valentin</a>
+    <button id="burger" aria-label="Ouvrir le menu" aria-expanded="false">Menu</button>
+    <nav aria-label="Navigation principale">
+      <ul id="menu">
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ========= ACCUEIL =========
+     Image d'accroche : placez votre photo dans img/ et changez le nom ci-dessous -->
+<section class="hero" id="accueil">
+  <img src="img/accueil.jpg" alt="Chantier d'aménagement paysager" onerror="this.style.display='none'">
+  <div class="wrap">
+    <h1>Thibault Valentin</h1>
+    <p>Paysagiste en formation, en BTS Aménagement paysager. Je crée et j'entretiens des espaces extérieurs, du terrassement à la plantation.</p>
+    <a class="btn" href="#realisations">Voir mes réalisations</a>
+    <a class="btn ghost" href="#contact">Me contacter</a>
+  </div>
+</section>
+
+<!-- ========= PROFIL ========= -->
+<section id="profil">
+  <div class="wrap deux">
+    <div>
+      <h2>Profil</h2>
+      <p>Je prépare actuellement un BTS Aménagement paysager (BTS AP) en alternance. Depuis 2023, je travaille dans le paysage : alternance, puis CDI, puis nouvelle alternance.</p>
+      <!-- À COMPLÉTER : ajoutez ici une ou deux phrases sur votre parcours ou votre motivation -->
+      <p style="margin-top:1rem"><strong>Objectif :</strong> poursuivre en licence pour parfaire mes connaissances.</p>
+      <ul class="faits">
+        <li><b>Lieu</b> Les Matelles</li>
+        <li><b>Permis</b> B / BE</li>
+        <li><b>Secourisme</b> SST, Sauveteur Secouriste au Travail</li>
+        <li><b>Loisirs</b> Chasse, taureaux, pêche</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sous" style="margin-top:.4rem">Expériences</h3>
+      <ul class="parcours">
+        <li><small>2025 – 2027</small><strong>Alternance en aménagement paysager (BTS)</strong><br>Jardin Services. Chantiers paysagers chez des particuliers.</li>
+        <li><small>2024 – 2025</small><strong>Paysagiste en CDI</strong><br>Vert Parc</li>
+        <li><small>2023 – 2024</small><strong>Paysagiste en alternance</strong><br>Vert Parc</li>
+      </ul>
+      <h3 class="sous">Diplômes</h3>
+      <ul class="parcours">
+        <li><small>2027 (en cours)</small>BTS Aménagement paysager</li>
+        <li><small>2024</small>Bac pro Aménagements paysagers</li>
+        <li><small>2023</small>Bac pro SAPAT (Services aux personnes et aux territoires)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========= COMPÉTENCES ========= -->
+<section id="competences" class="alt">
+  <div class="wrap">
+    <h2>Compétences techniques</h2>
+    <div class="grille">
+      <div class="bloc">
+        <h3>Compétences clés</h3>
+        <ul>
+          <li>Gestion de chantier en autonomie</li>
+          <li>Entretien de jardins</li>
+          <li>Participation à des projets de création</li>
+          <li>Utilisation de tous types de matériel</li>
+        </ul>
+      </div>
+      <div class="bloc">
+        <h3>Techniques maîtrisées</h3>
+        <ul>
+          <li>Gazon synthétique</li>
+          <li>Muret en pierre sèche</li>
+          <li>Terrassement</li>
+          <li>Plantation d'arbres avec tuteurage</li>
+          <li>Massifs arbustifs avec toile de paillage</li>
+          <li>Engazonnement par semis</li>
+          <li>Installation d'un système d'arrosage</li>
+          <li>Paillage en BRF</li>
+          <li>Pose de ganivelles</li>
+        </ul>
+      </div>
+      <div class="bloc">
+        <h3>Engins et outillage</h3>
+        <dl class="outils">
+          <dt>Mini-pelle</dt><dd>Terrassements, fosses de plantation</dd>
+          <dt>Petite remorque</dt><dd>Conduite</dd>
+          <dt>Pelle, pioche, râteau, tire-terre</dt><dd>Terrassement manuel, décompactage, nivellement, manutention de terre</dd>
+          <dt>Massette, disqueuse</dt><dd>Mise en place d'éléments, découpe de matériaux</dd>
+        </dl>
+        <!-- À COMPLÉTER : logiciels (ex. DAO/CAO) seulement si vous les maîtrisez -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= RÉALISATIONS =========
+     Pour chaque photo : changez le nom dans src="img/..." et dans data-nom -->
+<section id="realisations">
+  <div class="wrap">
+    <h2>Réalisations</h2>
+    <p class="intro"><strong>Aménagement paysager de la crèche Entre-Vignes, à Vérargues.</strong> Création et aménagement d'espaces paysagers extérieurs.</p>
+
+    <div class="galerie" id="galerie">
+      <figure>
+        <div class="photo"><img src="img/plantation.jpg" alt="Plantation d'arbres avec tuteurage" data-nom="img/plantation.jpg" loading="lazy"></div>
+        <figcaption><h3>Plantation d'arbres et tuteurage</h3><p>Collet au niveau du sol fini, remblaiement, tassement modéré et tuteur pour assurer la stabilité et la reprise.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/massifs.jpg" alt="Massifs arbustifs" data-nom="img/massifs.jpg" loading="lazy"></div>
+        <figcaption><h3>Massifs arbustifs</h3><p>Pose et découpe d'une toile de paillage, puis plantation de différentes espèces d'arbustes en respectant les distances.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/gazon.jpg" alt="Engazonnement par semis" data-nom="img/gazon.jpg" loading="lazy"></div>
+        <figcaption><h3>Engazonnement par semis</h3><p>Épierrage, affinage, réglage du niveau, semis homogène, griffage léger et arrosages réguliers.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/arrosage.jpg" alt="Installation du système d'arrosage" data-nom="img/arrosage.jpg" loading="lazy"></div>
+        <figcaption><h3>Système d'arrosage</h3><p>Mise en place et raccordement du réseau, puis contrôle de l'étanchéité et du fonctionnement.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/paillage.jpg" alt="Paillage en BRF" data-nom="img/paillage.jpg" loading="lazy"></div>
+        <figcaption><h3>Paillage en BRF</h3><p>Couche de BRF sur les massifs, sans contact avec les collets, pour limiter les adventices et l'évaporation.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/ganivelles.jpg" alt="Pose de ganivelles" data-nom="img/ganivelles.jpg" loading="lazy"></div>
+        <figcaption><h3>Pose de ganivelles</h3><p>Implantation du tracé, piquets, fixation et réglage de l'alignement pour délimiter les espaces.</p></figcaption>
+      </figure>
+      <!-- Pour ajouter une photo : copiez un bloc <figure> ci-dessus -->
+    </div>
+
+    <h3 class="sous">Déroulement du chantier</h3>
+    <div class="etapes">
+      <details><summary>Étape 1 – Préparation du chantier</summary><ul>
+        <li>Repérage des zones d'intervention</li><li>Organisation du chantier et préparation du matériel</li><li>Délimitation des surfaces de plantation, de massifs et d'engazonnement</li></ul></details>
+      <details><summary>Étape 2 – Terrassement et préparation des sols</summary><ul>
+        <li>Terrassement à la mini-pelle</li><li>Préparation des fosses de plantation</li><li>Réglage des niveaux</li></ul></details>
+      <details><summary>Étape 3 – Plantation des arbres et tuteurage</summary><ul>
+        <li>Collet positionné au niveau du sol fini</li><li>Remblaiement et tassement modéré pour limiter les poches d'air</li><li>Tuteurage et cuvette d'arrosage si nécessaire</li></ul></details>
+      <details><summary>Étape 4 – Massifs arbustifs</summary><ul>
+        <li>Nettoyage des surfaces, déroulage et fixation de la toile</li><li>Découpe aux emplacements des végétaux</li><li>Plantation selon les exigences de chaque espèce, puis finitions</li></ul></details>
+      <details><summary>Étape 5 – Système d'arrosage</summary><ul>
+        <li>Pose des équipements et raccordement du réseau</li><li>Vérification de l'étanchéité et du fonctionnement</li></ul></details>
+      <details><summary>Étape 6 – Engazonnement par semis</summary><ul>
+        <li>Ameublissement, épierrage et affinage de la terre</li><li>Réglage du niveau final, semis homogène, griffage léger</li><li>Roulage éventuel, puis arrosages légers et réguliers</li></ul></details>
+      <details><summary>Étape 7 – Paillage des massifs</summary><ul>
+        <li>Répartition homogène du BRF autour des arbustes</li><li>Contrôle de la couverture du sol</li></ul></details>
+      <details><summary>Étape 8 – Pose des ganivelles</summary><ul>
+        <li>Implantation du tracé et mise en place des piquets</li><li>Fixation, réglage de l'alignement et contrôle de la stabilité</li></ul></details>
+      <details><summary>Étape 9 – Finitions et repli de chantier</summary><ul>
+        <li>Contrôle visuel des plantations et aménagements</li><li>Nettoyage, évacuation des déchets, rangement du matériel</li></ul></details>
+    </div>
+
+    <div class="fiche">
+      <h3>Objectifs du chantier</h3>
+      <p>Créer des espaces extérieurs végétalisés, fonctionnels et esthétiques. Les interventions structurent les espaces par la plantation d'arbres et d'arbustes, l'engazonnement par semis, et l'intégration d'équipements d'arrosage et de délimitation, pour favoriser la reprise des végétaux et obtenir un aménagement adapté au site.</p>
+    </div>
+    <!-- À COMPLÉTER : ajoutez d'autres chantiers (gazon synthétique, muret en pierre sèche...) sur le même modèle -->
+  </div>
+</section>
+
+<!-- ========= CONTACT ========= -->
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Une question, une offre d'alternance ou un projet ? Écrivez-moi ou appelez-moi.</p>
+    <div class="contacts">
+      <div><span>Téléphone</span><a href="tel:+33778342706">07 78 34 27 06</a></div>
+      <div><span>E-mail</span><a href="mailto:taureaux.thibault@gmail.com">taureaux.thibault@gmail.com</a></div>
+      <div><span>Localisation</span>Les Matelles</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>© <span id="annee"></span> Thibault Valentin, portfolio BTS Aménagement paysager</footer>
+
+<div id="zoom" role="dialog" aria-label="Photo agrandie"><img alt=""></div>
+
+<script>
+// Année automatique du pied de page
+document.getElementById('annee').textContent = new Date().getFullYear();
+
+// Menu mobile
+const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  const ouvert = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', ouvert);
+});
+menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); } });
+
+// Photo absente : affiche un emplacement avec le nom de fichier attendu
+document.querySelectorAll('#galerie img').forEach(img => {
+  img.addEventListener('error', () => {
+    img.parentElement.innerHTML = 'Photo à ajouter :<br>' + img.dataset.nom;
+    img.parentElement.dataset.vide = '1';
+  });
+});
+
+// Agrandir une photo au clic
+const zoom = document.getElementById('zoom'), zimg = zoom.querySelector('img');
+document.getElementById('galerie').addEventListener('click', e => {
+  const img = e.target.closest('figure')?.querySelector('img');
+  if (!img) return;
+  zimg.src = img.src; zimg.alt = img.alt; zoom.classList.add('on');
+});
+zoom.addEventListener('click', () => zoom.classList.remove('on'));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') zoom.classList.remove('on'); });
+</script>
+</body>
+</html>
